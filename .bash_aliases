@@ -11,6 +11,13 @@
 alias update="yay"
 #alias update="sudo pacman -Syu"
 
+# yep windows user
+alias cls="clear"
+
+py () {
+    python3.10 $@
+}
+
 # go up a variable number of directories
 function cu {
     local count=$1
