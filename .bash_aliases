@@ -17,7 +17,7 @@ alias cls="clear"
 alias py="python3.10"
 
 #uwu
-alias sbb='sudo "$BASH" -c "$(history -p !!)"'
+alias please='sudo "$BASH" -c "$(history -p !!)"'
 
 # go up a variable number of directories
 function cu {
