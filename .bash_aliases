@@ -14,9 +14,10 @@ alias update="yay"
 # yep windows user
 alias cls="clear"
 
-py () {
-    python3.10 $@
-}
+alias py="python3.10"
+
+#uwu
+alias sbb='sudo "$BASH" -c "$(history -p !!)"'
 
 # go up a variable number of directories
 function cu {
