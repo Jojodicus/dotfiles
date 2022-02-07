@@ -6,7 +6,8 @@
 
 # update system
 # debian
-#alias update="sudo apt update -y && sudo apt upgrade -y && sudo apt autoremove -y && sudo apt dist-upgrade -y"
+#alias update="sudo apt update -y && sudo apt upgrade -y && sudo apt dist-upgrade -y" && sudo apt autoremove -y
+#alias update-distro="sudo do-release-upgrade"
 # arch
 alias update="yay"
 #alias update="sudo pacman -Syu"
