@@ -311,11 +311,17 @@ set $ws10 "10"
 # use workspaces on different displays:
 # where you have to replace VGA-0/HDMI-0 with the names for your displays
 # you can get from xrandr command
-#workspace $ws1 output VGA-0
-#workspace $ws2 output VGA-0
-#workspace $ws3 output HDMI-0
-#workspace $ws4 output HDMI-0
-#workspace $ws5 output HDMI-0
+# (Desktop workspace config)
+#workspace $ws1 output DP-2
+#workspace $ws2 output DP-2
+#workspace $ws3 output DP-2
+#workspace $ws4 output DP-2
+#workspace $ws5 output DP-2
+#workspace $ws6 output DP-4
+#workspace $ws7 output DP-4
+#workspace $ws8 output DP-4
+#workspace $ws9 output DP-4
+#workspace $ws10 output DP-4
 
 # bind program to workspace and focus to them on startup:
 #assign [class="Xfce4-terminal"] $ws1
@@ -571,3 +577,4 @@ bindsym XF86Sleep exec --no-startup-id i3exit suspend, mode "default"
 # apps
 bindsym XF86Calculator exec --no-startup-id galculator
 
+exec --no-startup-id i3-msg "workspace 10; exec /usr/bin/discord"
