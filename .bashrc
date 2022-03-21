@@ -27,3 +27,6 @@ bind '"\e[B":history-search-forward'
 # vi mode
 PS0="\e[2 q"
 set -o vi
+
+# fuck
+eval $(thefuck --alias)
