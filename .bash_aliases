@@ -110,3 +110,6 @@ ex ()
     echo "'$1' is not a valid file"
   fi
 }
+
+# fix kitty ssh
+[[ "$TERM" == "xterm-kitty" ]] && alias ssh="kitty +kitten ssh"
