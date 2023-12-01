@@ -1,0 +1,37 @@
+#! /bin/sh
+
+# activate numlock
+numlockx &
+
+# start picom
+picom &
+
+# set default cursor
+xsetroot -cursor_name left_ptr &
+
+# initiate hotkey daemon
+pgrep -x sxhkd > /dev/null || sxhkd &
+
+# setup desktops
+bspc monitor -d 1 2 3 4 5 6 7 8 9 10
+
+bspc config border_width         2
+bspc config window_gap          12
+bspc config focus_follows_pointer true
+bspc config split_ratio          0.52
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+
+# window rules
+bspc rule -a Thunar state=floating
+bspc rule -a Xarchiver state=floating
+bspc rule -a rars-Launch state=floating
+
+# set background
+feh --bg-center --randomize ~/Pictures/Wallpapers/* &
+
+# launch polybar
+$HOME/.config/polybar/launch.sh
+
+# set power profile
+powerprofilesctl set power-saver
