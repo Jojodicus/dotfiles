@@ -1,0 +1,19 @@
+theme = "base16_default"
+
+[editor]
+bufferline = "always"
+auto-pairs = false
+
+[editor.statusline]
+left = ["mode", "spinner"]
+right = ["diagnostics", "selections", "position", "file-encoding", "file-line-ending"]
+
+[editor.cursor-shape]
+insert = "bar"
+
+# [editor.whitespace.render]
+# tab = "all"
+
+[editor.indent-guides]
+render = true
+character = "┆"

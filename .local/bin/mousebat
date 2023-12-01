@@ -1,0 +1,24 @@
+#!/bin/env python3
+from openrazer.client import DeviceManager
+
+device_manager = DeviceManager()
+
+viper = None
+for device in device_manager.devices:
+    if "Razer Viper V2 Pro" in device.name:
+        viper = device
+
+if None == viper:
+    print("n/a")
+    exit()
+
+charging = ''
+if viper.is_charging:
+    charging = ''
+
+battery = 'idle'
+if viper.battery_level > 0:
+    battery = f'{viper.battery_level}%'
+
+print(f"{charging}{battery}")
+
