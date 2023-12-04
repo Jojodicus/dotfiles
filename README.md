@@ -14,14 +14,6 @@ The script applies the selected config to the current user's home, appending exi
 
 To execute the script:
 
-(short version)
 ```bash
-python3 -c "$(curl -s https://raw.githubusercontent.com/Jojodicus/dotfiles/master/install.py)"
-```
-
-(verbose version)
-```bash
-git clone https://github.com/Jojodicus/dotfiles
-cd dotfiles
-python3 install.py
+git clone https://github.com/Jojodicus/dotfiles && python3 dotfiles/install.py
 ```

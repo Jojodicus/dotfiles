@@ -1,5 +1,5 @@
-from os import system, chdir, path
-from shutil import which
+from os import chdir, path, walk, mkdir
+from shutil import which, copyfileobj
 
 # all branches which contain meaningful configs
 all_branches = [
@@ -8,19 +8,13 @@ all_branches = [
     'hpc'
 ]
 
-git_folder = '/tmp/dotfiles'
+# running from git-clone (hopefully)
+git_folder = path.dirname(__file__)
 
-# are we running from web (i.e. the short version install script)?
-if '__file__' in vars(__builtins__):
-    # then we have to clone the repo (after checking if git is installed)
-    if not which('git'):
-        print('git is either not installed or missing from PATH')
-        exit(1)
-
-    system(f'git clone https://github.com/Jojodicus/dotfiles {git_folder}')
-else:
-    # running from git-clone (hopefully)
-    git_folder = path.dirname(__file__)
+# check if git is actually installed properly
+if not which('git'):
+    print('[!] git is either not installed or missing from PATH')
+    exit(1)
 
 chdir(git_folder)
 
@@ -47,4 +41,28 @@ selected_branch = all_branches[selected_branch_index]
 
 print(f'loading config from branch {selected_branch}')
 
-system(f'git checkout {selected_branch}')
+# system(f'git checkout {selected_branch}')
+
+home = path.expanduser("~")
+
+# iterate over all files
+for root, dirs, files in walk('.'):
+    if '.git' in root:
+        continue
+
+    for file in files:
+        local_name = path.join(root, file)
+        new_name = path.join(home, local_name)
+        print(f'copying {local_name} to {new_name}')
+
+        # create directory if it doesn't exist
+        new_dirname = path.dirname(new_name)
+        if not path.exists(new_dirname):
+            mkdir(new_dirname)
+
+        # copy file over in append mode
+        with open(local_name, 'r') as source:
+            with open(new_name, 'a') as dest:
+                copyfileobj(source, dest)
+
+print('Done!')
