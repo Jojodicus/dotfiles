@@ -1,4 +1,4 @@
-from os import system, chdir, path, walk, mkdir
+from os import system, chdir, path, walk, makedirs
 from shutil import which, copyfileobj
 
 # all branches which contain meaningful configs
@@ -56,9 +56,7 @@ for root, dirs, files in walk('.'):
         print(f'copying {local_name} to {new_name}')
 
         # create directory if it doesn't exist
-        new_dirname = path.dirname(new_name)
-        if not path.exists(new_dirname):
-            mkdir(new_dirname)
+        makedirs(path.dirname(new_name), exist_ok=True)
 
         # copy file over in append mode
         with open(local_name, 'r') as source:
