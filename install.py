@@ -1,4 +1,4 @@
-from os import chdir, path, walk, mkdir
+from os import system, chdir, path, walk, mkdir
 from shutil import which, copyfileobj
 
 # all branches which contain meaningful configs
