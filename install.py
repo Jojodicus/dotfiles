@@ -41,7 +41,7 @@ selected_branch = all_branches[selected_branch_index]
 
 print(f'loading config from branch {selected_branch}')
 
-# system(f'git checkout {selected_branch}')
+system(f'git checkout {selected_branch}')
 
 home = path.expanduser("~")
 
