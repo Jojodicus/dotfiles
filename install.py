@@ -11,7 +11,7 @@ all_branches = [
 git_folder = '/tmp/dotfiles'
 
 # are we running from web (i.e. the short version install script)?
-if '__file__' in vars():
+if '__file__' in vars(__builtins__):
     # then we have to clone the repo (after checking if git is installed)
     if not which('git'):
         print('git is either not installed or missing from PATH')
