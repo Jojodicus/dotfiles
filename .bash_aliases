@@ -26,3 +26,6 @@ mkcd() {
 
 alias ml='module load'
 alias ma='module avail'
+
+# slurm shorthands
+alias cancel='scancel --user=$(whoami)'
