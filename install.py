@@ -5,7 +5,8 @@ from shutil import which, copyfileobj
 all_branches = [
     'desktop',
     'laptop',
-    'hpc'
+    'hpc',
+    'server'
 ]
 
 # running from git-clone (hopefully)
